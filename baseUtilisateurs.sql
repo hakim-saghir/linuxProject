@@ -16,4 +16,4 @@ CREATE TABLE IF NOT EXISTS user_tb (
   KEY type (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-LOAD XML LOCAL INFILE '/root/git/linuxProject/donneesUtilisateurs.xml' INTO TABLE user_tb ROWS IDENTIFIED BY '<user>';
+LOAD XML LOCAL INFILE '/home/hs/Bureau/linux/linuxProject/donneesUtilisateurs.xml' INTO TABLE user_tb ROWS IDENTIFIED BY '<user>';
