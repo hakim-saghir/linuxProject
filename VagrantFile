@@ -1,8 +1,9 @@
 Vagrant.configure(2) do |config|
  config.vm.box = 'ubuntu/trusty64'
- config.vm.hostname = 'foo'
- config.vm.provision 'shell', path: 'http://192.168.56.1/transferArchivesAndDataBaseToMachine2.sh'
- config.vm.provider :virtualbox do |vb|
-  vb.name = 'M1.clone'
+ config.vm.hostname = 'DESKTOP-33DQ2LA'
+ config.vm.provision 'shell', path: './Scripts/transferArchivesAndDataBaseToMachine2.sh'
+ config.vm.provider :virtualbox do |v|
+  v.name = 'M1.clone'
+  v.gui = true
  end
 end
