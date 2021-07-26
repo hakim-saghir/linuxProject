@@ -58,6 +58,9 @@
 
 	$ sudo mysql
 	$ set global local_infile=1;
+	
+* Ou utiliser directement cette commande *
+$ sudo mysql -e "SOURCE /repertoire/fichier.sql" --local-infile=1
 
 
 #### Charger un fichier sur mysql pour créer une base de donnée:
