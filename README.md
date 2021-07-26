@@ -142,7 +142,9 @@ Vérifier que l'utilisateur existe dans la table SQL :
 
 Lancer le script **transferArchivesAndDataBaseToM2.sh** pour envoyer les archive et la sauvegarde de la base de données vers la machine 2 (serveur).
 
-## Création d'un fichier de configuration Vagrant
+## Vagrant/Vagrantfile
+
+Création d'un fichier de configuration Vagrant
 
 Télécharger une box de meme version:
 
