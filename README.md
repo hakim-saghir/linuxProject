@@ -72,6 +72,17 @@ Créer une sauvegarde de la base de données des utilisateurs avec la commande s
 
 `$ mysqldump users_db > sauvegarde_db.sql`
 
+### Création d'une base SQL & remplissage de données :
+
+#### Script 2 : creer_un_utilisateur_et_sa_table_dans_la_base.sh
+Il s'agit d'un script permettant de créer un compte utilisateur système et de rajouter l'utilisateur dans la base users_db.
+
+##### Script 3 : 3_mettre_ajour_la_base_de_donnees_si_changement_taille_fingerprint_et_transferer_sauvegardes_vers_m2.sh
+
+Il s'agit d'un script permettant de mettre à jour la base de données utilisateurs si il y a un changement de la taille d'un compte utilisateur ou bien sa fingerprint ensuite de transferer la sauvegarde vers la machine M2.
+#### Script 4 : transferer_les_scripts_sur_m2.sh
+
+Ce script permet de transferer des scripts d'archives depuis M1 vers M2
 *********************************************************************************************
 
 ### Sauvegarder la base de données sur la machine M2:
