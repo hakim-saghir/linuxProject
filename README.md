@@ -30,7 +30,7 @@
 - fingerprint
 
 #### Pour l'archive, nous avons utilisé la commande :
-`$ zip tcvf [nom de l'archive] [répertoire à archiver]`
+`$ tar cvf [nom de l'archive] [répertoire à archiver]`
 
 #### Pour la taille du répertoire de travail de chaque utilisateur, nous avons utilisé la commande :
 `$ du -s [répertoire de travail] | cut -f1
@@ -48,29 +48,29 @@
 
 *Dans ubuntu (changer les droits pour le chargement des fichiers côté client et côté serveur), il faut ajouter dans le fichier **"/etc/mysql/mysql.conf.d/mysqld.cnf"**
 	
-	[client]
-	
-	local_infile = 1
+[client]
+local_infile = 1
 	
 *et la commande suivante:*
 
-	$ sudo mysql
-	$ set global local_infile=1;
+$ sudo mysql
+$ set global local_infile=1;
+
 	
-* Ou utiliser directement cette commande *
+* Ou utiliser sinon directement cette commande *
 $ sudo mysql -e "SOURCE /repertoire/fichier.sql" --local-infile=1
 
 
 #### Charger un fichier sur mysql pour créer une base de donnée:
 
-`$ mysql < [baseUtilisateurs.sql]`
+`$ sudo mysql < [baseUtilisateurs.sql]`
 
 *Le fichier contient le script de création de base de données des utilisateurs **"users_db"**, de sa table **"user_tb"** et le nom du fichier XML à charger dans la table*
 
 ####  Sauvegarde de la base de données :
 Créer une sauvegarde de la base de données des utilisateurs avec la commande suivante :
 
-`$ mysqldump users_db > sauvegarde_db.sql`
+`$ sudo mysqldump users_db > sauvegarde_db.sql`
 
 ### Création d'une base SQL & remplissage de données :
 
@@ -134,10 +134,10 @@ Tester si les tables sont chargées :
 
 ***********************************************************************************************
 *Création d'utilisateur :*
-`$ sudo adduser [nom de l'utilisateur]`
+$ sudo adduser [nom de l'utilisateur]
 
 *Changer d'utilisateur :*
-`su [nom de l'utilisateur]`
+& su [nom de l'utilisateur]
 
 ***********************************************************************************************
 ## Vérification si le répertoire d'un utilisateur a changé et envoyer les changements dans la machine 2:
@@ -163,7 +163,10 @@ Lancer le script **transferArchivesAndDataBaseToM2.sh** pour envoyer les archive
 - Télécharger une box de meme version
 
 - Génerer un Vagrantfile 
-`Vagrant init nom_de_la_box`
+$ Vagrant init nom_de_la_box
+
+- Créer une VM
+$ Vagrant up
 
 ## Parcourir la table, récupèrer les données et créer des comptes utilisateurs
 sudo mysql users_db -e  "SELECT name, home FROM user_tb"  | while read name home; do
