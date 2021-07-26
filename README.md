@@ -1,6 +1,7 @@
-# Instructions du projet linux
+# Instructions du projet linux : 
+**Sujet :** Gestion et description de données d'un serveur de comptes
 
- Rédigé par **Hakim SAGHIR** et **Mohamed EL MATROR**
+*Rédigé par **Hakim SAGHIR** et **Mohamed EL MATROR***
 
 ## Le serveur de comptes : machine M1
 
