@@ -1,19 +1,19 @@
 # Instructions du projet linux
 
-### Rédigé par Hakim SAGHIR et Mohamed EL MATROR
+ Rédigé par **Hakim SAGHIR** et **Mohamed EL MATROR**
 
 ## Le serveur de comptes : machine M1
 
- Créer 4 comptes utilisateurs sur M
+ Créer 4 comptes utilisateurs sur M1
  
- Génerer le xml des utilisateurs et archiver les repertoires de travail
+ Génerer le xml des utilisateurs et archiver les répertoires de travail
  
  Les fichiers xml sont sauvegardés dans le dossier xml
 
 
 ### Script 1 : getXmlAndRepositoriesOfUsers.sh
 
- Parcourir les utilisateurs actifs de la machine dans "/etc/passwd", archiver et sauvegarder le repertoire de travail de chaque utilisateur et générer un fichier "xml" contenant les informations suivantes de chaque utilisateur :
+ Parcourir les utilisateurs actifs de la machine dans **"/etc/passwd"**, archiver et sauvegarder le repertoire de travail de chaque utilisateur et générer un fichier **xml** contenant les informations suivantes de chaque utilisateur :
  
 - nom
 	
@@ -46,7 +46,7 @@
 
 `sudo apt-get install mysql-server`
 
-*Dans ubuntu (changer les droits pour le chargement des fichiers côté client et côté serveur), il faut ajouter dans le fichier "/etc/mysql/mysql.conf.d/mysqld.cnf"
+*Dans ubuntu (changer les droits pour le chargement des fichiers côté client et côté serveur), il faut ajouter dans le fichier **"/etc/mysql/mysql.conf.d/mysqld.cnf"**
 	:*
 	
 	[client]
@@ -63,7 +63,7 @@
 
 `$ mysql < [baseUtilisateurs.sql]`
 
-*Le fichier contient le script de création de base de données des utilisateurs "users_db", de sa table "user_tb" et le nom du fichier XML à charger dans la table*
+*Le fichier contient le script de création de base de données des utilisateurs **"users_db"**, de sa table **"user_tb"** et le nom du fichier XML à charger dans la table*
 
 
 ####  Sauvegarde de la base de données :
@@ -90,12 +90,12 @@ Génerer une clé RSA publique dans la machine 1 :
 
 `$ ssh-keygen -t rsa`
 
-Copier la clé publique (depuis le fichier ~/.ssh/id_rsa.pub) de la machine 1 vers la machine 2 (serveur) :
+Copier la clé publique (*depuis le fichier **~/.ssh/id_rsa.pub** *) de la machine 1 vers la machine 2 (serveur) :
 
 `$ ssh-copy-id save@srv`
 
 
-Copier la sauvegarde la base de données sur la machine 2 (serveur) :
+Copier la sauvegarde la base de données sur la machine 2 *(serveur)* :
 
 `$ scp [fichiers à envoyer] [nom de l'utilisateur]@[adresse IP]:[répertoire de sauvegarde et nom du fichier]`
 
@@ -138,9 +138,9 @@ Vérifier que l'utilisateur existe dans la table SQL :
 	
 - Si le compte utilisateur existe et que la taille ou le finger print sont différents, mettre à jour ces derniers dans la ligne du compte dans la table user_tb.
 
-- S'il n'existe pas : Insérer une ligne dans la table user_tb avec les information du compte utilisateur
+- S'il n'existe pas : Insérer une ligne dans la table **user_tb** avec les information du compte utilisateur
 
-Lancer le script *transferArchivesAndDataBaseToM2.sh* pour envoyer les archive et la sauvegarde de la base de données vers la machine 2 (serveur).
+Lancer le script **transferArchivesAndDataBaseToM2.sh** pour envoyer les archive et la sauvegarde de la base de données vers la machine 2 (serveur).
 
 ## Création d'un fichier de configuration Vagrant
 
