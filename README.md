@@ -1,7 +1,7 @@
 # Instructions du projet linux : 
 **Sujet :** Gestion et description de données d'un serveur de comptes
 
-*Rédigé par **Hakim SAGHIR**, **Mohamed EL MATROR*** et **Ephraim**
+*Rédigé par **Hakim SAGHIR**, **Mohamed EL MATROR***
 
 ## Le serveur de comptes : machine M1
 
@@ -10,7 +10,6 @@
  Génerer le xml des utilisateurs et archiver les répertoires de travail
  
  Les fichiers xml sont sauvegardés dans le dossier xml
-
 
 ### Script 1 : getXmlAndRepositoriesOfUsers.sh
 
@@ -48,7 +47,6 @@
 `sudo apt-get install mysql-server`
 
 *Dans ubuntu (changer les droits pour le chargement des fichiers côté client et côté serveur), il faut ajouter dans le fichier **"/etc/mysql/mysql.conf.d/mysqld.cnf"**
-	:*
 	
 	[client]
 	
@@ -69,7 +67,6 @@ $ sudo mysql -e "SOURCE /repertoire/fichier.sql" --local-infile=1
 
 *Le fichier contient le script de création de base de données des utilisateurs **"users_db"**, de sa table **"user_tb"** et le nom du fichier XML à charger dans la table*
 
-
 ####  Sauvegarde de la base de données :
 Créer une sauvegarde de la base de données des utilisateurs avec la commande suivante :
 
@@ -83,11 +80,12 @@ Il s'agit d'un script permettant de créer un compte utilisateur système et de 
 ##### Script 3 : 3_mettre_ajour_la_base_de_donnees_si_changement_taille_fingerprint_et_transferer_sauvegardes_vers_m2.sh
 
 Il s'agit d'un script permettant de mettre à jour la base de données utilisateurs si il y a un changement de la taille d'un compte utilisateur ou bien sa fingerprint ensuite de transferer la sauvegarde vers la machine M2.
+
 #### Script 4 : transferer_les_scripts_sur_m2.sh
 
 Ce script permet de transferer des scripts d'archives depuis M1 vers M2
-*********************************************************************************************
 
+*********************************************************************************************
 ### Sauvegarder la base de données sur la machine M2:
 
 #### Installation de SSH sur les deux machines
@@ -108,7 +106,6 @@ Génerer une clé RSA publique dans la machine 1 :
 Copier la clé publique (*depuis le fichier **~/.ssh/id_rsa.pub** *) de la machine 1 vers la machine 2 (serveur) :
 
 `$ ssh-copy-id save@srv`
-
 
 Copier la sauvegarde la base de données sur la machine 2 *(serveur)* :
 
@@ -143,8 +140,8 @@ Tester si les tables sont chargées :
 `su [nom de l'utilisateur]`
 
 ***********************************************************************************************
-#### Vérification si le répertoire d'un utilisateur a changé et envoyer les changements dans la machine 2:
-Vérifier que l'utilisateur existe dans la table SQL :
+## Vérification si le répertoire d'un utilisateur a changé et envoyer les changements dans la machine 2:
+#### Vérifier que l'utilisateur existe dans la table SQL :
 
 - S'il existe :
 
@@ -157,24 +154,20 @@ Vérifier que l'utilisateur existe dans la table SQL :
 
 Lancer le script **transferArchivesAndDataBaseToM2.sh** pour envoyer les archive et la sauvegarde de la base de données vers la machine 2 (serveur).
 
+
+***********************************************************************************************
 ## Vagrant/Vagrantfile
 
-Création d'un fichier de configuration Vagrant
+#### Création d'un fichier de configuration Vagrant
 
-Télécharger une box de meme version:
+- Télécharger une box de meme version
 
+- Génerer un Vagrantfile 
 `Vagrant init nom_de_la_box`
 
-Vagrant file :
+## Parcourir la table, récupèrer les données et créer des comptes utilisateurs
+sudo mysql users_db -e  "SELECT name, home FROM user_tb"  | while read name home; do
+    useradd -m -d $home $name
+    echo "user: $name created with home directory : $home"
+done
 
-
-```ruby
-Vagrant.configure(2) do |config|
- config.vm.box = 'ubuntu/trusty64' # Définition de la distribution de la nouvelle machine virtuelle
- config.vm.hostname = 'foo' # Définition du nom d'utilisateur de la machine
- config.vm.provision 'shell', path: 'http://192.168.56.1/transferArchivesAndDataBaseToMachine2.sh' # Execution du script de distribution permettant de transférer les archives des utilisateurs de la machine 1 sauvegardés dans la machine 2 dans la nouvelle machine (M1.clone)
- config.vm.provider :virtualbox do |vb|
-  vb.name = 'M1.clone' # Définition du nom de la machine virtuelle
- end
-end
-```
