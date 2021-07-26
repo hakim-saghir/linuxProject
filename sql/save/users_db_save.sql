@@ -42,7 +42,7 @@ CREATE TABLE `user_tb` (
 
 LOCK TABLES `user_tb` WRITE;
 /*!40000 ALTER TABLE `user_tb` DISABLE KEYS */;
-INSERT INTO `user_tb` VALUES (1,'root',0,0,'/root','/bin/bash',40,'52e3691111b09906a5511e7e8c309e37'),(2,'hs',1000,1000,'/home/hs','/bin/bash',157288,'a41a1c2a1780bace5db3d67605c85f62'),(3,'hs2',1001,1001,'/home/hs2','/bin/bash',16,'45a06c5aeeb37588cb939259b79f0b97'),(4,'hs3',1002,1002,'/home/hs3','/bin/bash',16,'0732e5d04df3845f620e41757f41c390'),(5,'hs4',1003,1003,'/home/hs4','/bin/bash',16,'f4f8b63cb68ffd79e9d49c13b93c15da');
+INSERT INTO `user_tb` VALUES (1,'root',0,0,'/root','/bin/bash',44,'08bcfa2aaced859732530ae334deb27e'),(2,'hs',1000,1000,'/home/hs','/bin/bash',164864,'2861658937af2cf413b96e03cce749d3'),(3,'hs2',1001,1001,'/home/hs2','/bin/bash',16,'45a06c5aeeb37588cb939259b79f0b97'),(4,'hs3',1002,1002,'/home/hs3','/bin/bash',16,'0732e5d04df3845f620e41757f41c390'),(5,'hs4',1003,1003,'/home/hs4','/bin/bash',16,'f4f8b63cb68ffd79e9d49c13b93c15da');
 /*!40000 ALTER TABLE `user_tb` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-26  6:47:13
+-- Dump completed on 2021-07-26 14:54:38
