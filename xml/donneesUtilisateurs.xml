@@ -6,8 +6,8 @@
 		<gid>0</gid>
 		<home>/root</home>
 		<shell>/bin/bash</shell>
-		<taille>40</taille>
-		<fingerprint>52e3691111b09906a5511e7e8c309e37</fingerprint>
+		<taille>44</taille>
+		<fingerprint>95d3e833e1f9bac1d7a6e1d1a3d9a902</fingerprint>
 	</user>
 	<user>
 		<name>hs</name>
@@ -15,8 +15,8 @@
 		<gid>1000</gid>
 		<home>/home/hs</home>
 		<shell>/bin/bash</shell>
-		<taille>157280</taille>
-		<fingerprint>da85b55dd35b225ac632caed34f44c10</fingerprint>
+		<taille>164832</taille>
+		<fingerprint>0f88a25e9f4c6aac04da1a8b38629e97</fingerprint>
 	</user>
 	<user>
 		<name>hs2</name>
