@@ -11,7 +11,7 @@
  
  Les fichiers xml sont sauvegardés dans le dossier xml
 
-### Script 1 : getXmlAndRepositoriesOfUsers.sh
+#### Script 1 : getXmlAndRepositoriesOfUsers.sh
 
  Parcourir les utilisateurs actifs de la machine dans **"/etc/passwd"**, archiver et sauvegarder le repertoire de travail de chaque utilisateur et générer un fichier **xml** contenant les informations suivantes de chaque utilisateur :
  
